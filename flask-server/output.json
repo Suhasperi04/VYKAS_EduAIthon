@@ -1,0 +1,172 @@
+{
+    "multipleChoice": [
+        {
+            "question": "What is the subnet mask for a /27 subnet?",
+            "options": [
+                "A. 255.255.255.128",
+                "B. 255.255.255.192",
+                "C. 255.255.255.224",
+                "D. 255.255.255.240"
+            ],
+            "correctAnswer": "C. 255.255.255.224",
+            "explanation": "A /27 subnet has 5 bits for host addresses (32 - 27 = 5), resulting in 2^5 = 32 addresses.  The subnet mask is calculated as 256 - 32 = 224.",
+            "courseOutcome": "CO4",
+            "bloomsLevel": "Remember"
+        },
+        {
+            "question": "In CIDR notation, 192.168.10.0/24 represents:",
+            "options": [
+                "A. A single IP address",
+                "B. A network with 254 usable host addresses",
+                "C. A network with 256 usable host addresses",
+                "D. A network with 128 usable host addresses"
+            ],
+            "correctAnswer": "B. A network with 254 usable host addresses",
+            "explanation": "A /24 network has 8 bits for host addresses (32-24=8).  2^8 = 256 total addresses, minus the network address and broadcast address leaves 254 usable host addresses.",
+            "courseOutcome": "CO4",
+            "bloomsLevel": "Understand"
+        },
+        {
+            "question": "How many usable IP addresses are available in a /26 subnet?",
+            "options": [
+                "A. 30",
+                "B. 62",
+                "C. 64",
+                "D. 126"
+            ],
+            "correctAnswer": "B. 62",
+            "explanation": "A /26 subnet has 6 bits for host addresses (32-26=6). 2^6 = 64 total addresses, minus network and broadcast addresses leaves 62 usable addresses.",
+            "courseOutcome": "CO4",
+            "bloomsLevel": "Apply"
+        },
+        {
+            "question": "Which of the following is NOT a valid subnet mask?",
+            "options": [
+                "A. 255.255.255.0",
+                "B. 255.255.255.128",
+                "C. 255.255.255.190",
+                "D. 255.255.255.250"
+            ],
+            "correctAnswer": "C. 255.255.255.190",
+            "explanation": "Valid subnet masks are always in powers of 2 (128, 192, 224, 240, 248, 252, 254,255). 190 is not a power of 2.",
+            "courseOutcome": "CO4",
+            "bloomsLevel": "Analyze"
+        },
+        {
+            "question": "The process of dividing a larger network into smaller subnetworks is called:",
+            "options": [
+                "A. Routing",
+                "B. Subnetting",
+                "C. Masking",
+                "D. Addressing"
+            ],
+            "correctAnswer": "B. Subnetting",
+            "explanation": "Subnetting is the technique used to break down a larger network into smaller, more manageable subnetworks.",
+            "courseOutcome": "CO4",
+            "bloomsLevel": "Remember"
+        }
+    ],
+    "shortAnswer": [
+        {
+            "question": "Explain the purpose of a subnet mask in IP addressing.",
+            "answer": "A subnet mask identifies the network portion and the host portion of an IP address. It allows routers to direct packets to the correct subnet efficiently.",
+            "courseOutcome": "CO4",
+            "bloomsLevel": "Understand"
+        },
+        {
+            "question": "What is CIDR and why is it important?",
+            "answer": "CIDR (Classless Inter-Domain Routing) is a method for allocating IP addresses more efficiently. It improves routing efficiency and conserves IP address space.",
+            "courseOutcome": "CO4",
+            "bloomsLevel": "Understand"
+        },
+        {
+            "question": "What is the significance of the broadcast address within a subnet?",
+            "answer": "The broadcast address is used to send a message to all devices on a particular subnet simultaneously. It is not assigned to an individual host.",
+            "courseOutcome": "CO4",
+            "bloomsLevel": "Understand"
+        },
+        {
+            "question": "Briefly describe the process of calculating the number of usable IP addresses in a subnet.",
+            "answer": "Determine the number of host bits (32-CIDR notation). Calculate 2 raised to the power of the number of host bits. Subtract 2 (network and broadcast addresses) to get the number of usable IPs.",
+            "courseOutcome": "CO4",
+            "bloomsLevel": "Apply"
+        },
+        {
+            "question": "Why is it necessary to subdivide an IP address range?",
+            "answer": "Subdividing an IP address range allows for better organization and control of network traffic within a larger network.  It improves security and efficiency.",
+            "courseOutcome": "CO4",
+            "bloomsLevel": "Understand"
+        }
+    ],
+    "longAnswer": [
+        {
+            "question": "You are tasked with designing an IP addressing scheme for a medium-sized company with multiple departments.  Explain the steps involved in designing this scheme using CIDR, considering factors like network size, future growth, and efficient allocation of IP addresses.",
+            "answer": "1. **Determine total IP address requirement:** Estimate the number of devices in each department, and add a buffer for future expansion.  Consider factors like servers, workstations, printers, and mobile devices. \n2. **Choose a base IP address range:** Select an available IP address range from your ISP or organization's allocation. \n3. **Plan Subnets:** Determine the appropriate subnet mask for each department based on their IP address needs, ensuring efficient allocation without unnecessary waste. This involves calculating the number of bits needed for the host portion of the address and choosing a corresponding subnet mask (e.g., /24, /26, /27). \n4. **Assign Subnets:** Allocate the IP address ranges and subnet masks to the departments. Ensure there is sufficient space for future growth and consider using a consistent organizational structure to manage the IP addresses.\n5. **Document the scheme:** Create a clear and organized document outlining the IP addressing scheme. This document should include all IP ranges, subnet masks, network addresses, broadcast addresses, and assigned departments. \n6. **Test the scheme:** Thoroughly test the IP addressing scheme to ensure it functions correctly before deployment. This ensures that the network infrastructure supports the assigned addresses and subnets. \n7. **Consider future expansion:** Leave enough space for future growth in each department, preventing future address exhaustion and reducing reconfiguration work.\n8. **Implement robust monitoring and management tools:** Use network management tools to track IP address usage, troubleshoot connectivity issues, and ensure efficient resource utilization.",
+            "markingScheme": [
+                "Identifying total IP requirements (1 mark)",
+                "Choosing a suitable base IP address range (1 mark)",
+                "Explaining the subnet mask calculation process (2 marks)",
+                "Allocating subnets to departments (1 mark)",
+                "Documenting and testing the addressing scheme (1 mark)",
+                "Planning for future growth (1 mark)"
+            ],
+            "courseOutcome": "CO4",
+            "bloomsLevel": "Apply"
+        },
+        {
+            "question": "Compare and contrast the advantages and disadvantages of using Classful and Classless IP addressing schemes.",
+            "answer": "Classful addressing (Class A, B, C) is a legacy system where IP addresses are assigned based on predefined address classes.  It was simple to understand but highly inefficient, leading to massive IP address wastage. Classless Inter-Domain Routing (CIDR) is a more flexible and efficient system that uses variable-length subnet masks to allocate IP address space more precisely, reducing waste and allowing for more granular control of network segmentation.  CIDR improves routing efficiency compared to Classful. \n\n**Advantages of CIDR:** More efficient IP address allocation, improved routing scalability, and more flexible network design.\n\n**Disadvantages of CIDR:** More complex to understand and manage than Classful addressing, requiring advanced knowledge of subnetting and mask calculations.  Requires more sophisticated routing protocols.",
+            "markingScheme": [
+                "Description of Classful addressing (2 marks)",
+                "Description of CIDR addressing (2 marks)",
+                "Comparison of efficiency (1 mark)",
+                "Comparison of complexity (1 mark)"
+            ],
+            "courseOutcome": "CO4",
+            "bloomsLevel": "Analyze"
+        },
+        {
+            "question": "Explain the concept of 'subnetting' and illustrate with an example how you would subdivide the 192.168.1.0/24 network into at least three subnets, each with a different number of usable IP addresses.  Include CIDR notation, subnet masks, and usable IP address ranges for each subnet.",
+            "answer": "Subnetting is the process of dividing a larger network (e.g., a /24 network) into smaller, logical subnetworks. This improves efficiency, security, and manageability.  \n\nLet's subdivide 192.168.1.0/24: \n\nSubnet A:  Needs 60 usable IPs (requires a /26, providing 62 usable IPs)\nCIDR: 192.168.1.0/26\nSubnet Mask: 255.255.255.192\nUsable IP Range: 192.168.1.1 - 192.168.1.62\n\nSubnet B: Needs 30 usable IPs (requires a /27, providing 30 usable IPs)\nCIDR: 192.168.1.64/27\nSubnet Mask: 255.255.255.224\nUsable IP Range: 192.168.1.65 - 192.168.1.94\n\nSubnet C: Needs 10 usable IPs (requires a /28, providing 14 usable IPs)\nCIDR: 192.168.1.96/28\nSubnet Mask: 255.255.255.240\nUsable IP Range: 192.168.1.97 - 192.168.1.110\n\nRemaining IPs can be allocated to a further subnet or held in reserve for future use.",
+            "markingScheme": [
+                "Definition of subnetting (1 mark)",
+                "Correct calculation of subnet A (2 marks)",
+                "Correct calculation of subnet B (2 marks)",
+                "Correct calculation of subnet C (2 marks)",
+                "Explanation of remaining IP addresses (1 mark)"
+            ],
+            "courseOutcome": "CO4",
+            "bloomsLevel": "Apply"
+        }
+    ],
+    "numerical": [
+        {
+            "question": "Calculate the number of usable IP addresses in a /29 subnet.",
+            "solution": "1. Number of host bits: 32 - 29 = 3\n2. Total number of addresses: 2^3 = 8\n3. Usable IP addresses: 8 - 2 (network and broadcast) = 6",
+            "answer": "6",
+            "courseOutcome": "CO4",
+            "bloomsLevel": "Apply"
+        },
+        {
+            "question": "Convert the binary IP address 11000000.10101000.00000000.00000001 to decimal notation.",
+            "solution": "1. Convert each octet to decimal:\n   11000000 = 192\n   10101000 = 168\n   00000000 = 0\n   00000001 = 1\n2. Combine the decimal values: 192.168.0.1",
+            "answer": "192.168.0.1",
+            "courseOutcome": "CO4",
+            "bloomsLevel": "Apply"
+        },
+        {
+            "question": "You need to create a subnet with at least 200 usable IP addresses.  What is the smallest CIDR notation you can use?",
+            "solution": "1. Number of addresses needed: 200 + 2 (network and broadcast) = 202\n2. Smallest power of 2 greater than 202: 256 (2^8)\n3. Number of host bits: 8\n4. CIDR notation: 32 - 8 = /24",
+            "answer": "/24",
+            "courseOutcome": "CO4",
+            "bloomsLevel": "Apply"
+        },
+        {
+            "question": "Determine the number of subnets and the number of usable host addresses per subnet in a network with the address 172.16.0.0/21.",
+            "solution": "1. Number of network bits: 21\n2. Number of subnet bits: 32 - 21 = 11\n3. Number of subnets: 2^11 = 2048\n4. Number of host bits: 32 - 21 - (number of subnet bits needed) = 32-21-0 =11\n5. Number of hosts per subnet: 2^11 -2 = 2046",
+            "answer": "2048 subnets, 2046 usable host addresses per subnet",
+            "courseOutcome": "CO4",
+            "bloomsLevel": "Apply"
+        }
+    ]
+}
